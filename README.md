@@ -4,11 +4,11 @@
 
 1.  come up with idea
 
--   music generation based on mood
+    -   music generation based on mood
 
 2.  research possible ways to implement the idea
 
--   from background knowledge we knew about tensorflow.js and TensorFlow Magenta
+    -   from background knowledge we knew about tensorflow.js and TensorFlow Magenta
 
 3.  collect data
 4.  download the music of various artists and categorize them into general moods
