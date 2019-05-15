@@ -10,18 +10,17 @@
 
     -   from background knowledge we knew about tensorflow.js and TensorFlow Magenta
 
-3.  collect data
-4.  download the music of various artists and categorize them into general moods
+3.  download the music of various artists and categorize them into general moods
 
     -   KIL and ZOTiYAC
-    -   [INSERT MORE ARTISTS/GENRES]
+    -   classical music
 
-5.  [convert the MP3s to MIDI files](https://www.bearaudiotool.com/mp3-to-midi)
+4.  [convert the MP3s to MIDI files](https://www.bearaudiotool.com/mp3-to-midi)
 
     -   you will lose lyrics (so the model will only be able to generate music with instrumentals)
 
-6.  [convert MIDI files to NoteSequences](https://github.com/tensorflow/magenta/blob/master/magenta/scripts/README.md)
+5.  [convert MIDI files to NoteSequences](https://github.com/tensorflow/magenta/blob/master/magenta/scripts/README.md)
 
-7.  [convert NoteSequences to SequenceExamples](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#create-sequenceexamples)
+6.  [convert NoteSequences to SequenceExamples](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#create-sequenceexamples)
 
-8.  [train the model](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#train-and-evaluate-the-model) [NOT COMPLETED YET]
+7.  [train the MelodyRNN on the data](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#train-and-evaluate-the-model)
