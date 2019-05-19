@@ -1,11 +1,10 @@
 @import '../../../styles.scss';
 .image {
-    width: 80vh;
     height: 300px;
     border-radius: 2em;
     background-size: contain;
     background-color: $mdc-theme-primary;
-    margin: 8px;
+    margin: 8px auto;
 }
 
 .play-pause-container {
