@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-player',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
+  musicTypeForm: FormGroup;
+
+  constructor() { 
+    this.musicTypeForm = new FormGroup({
+      musicType: new FormControl('Classical')
+    })
+  }
 
   ngOnInit() {
   }

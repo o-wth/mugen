@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './views/player/player.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { 
   MdcIconModule,
@@ -23,6 +24,8 @@ import {
   ],
   imports: [
     BrowserModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MdcIconModule,
     MdcTypographyModule,
     MdcButtonModule,
