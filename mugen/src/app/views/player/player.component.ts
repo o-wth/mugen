@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import {MdcFab} from '@angular-mdc/web';
 
 @Component({
   selector: 'app-player',
@@ -9,22 +10,23 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class PlayerComponent implements OnInit {
 
   musicTypeForm: FormGroup;
+  @ViewChild('rewindButton') rewindButton: MdcFab;
+  @ViewChild('playPauseButton') playPauseButton: MdcFab;
+  @ViewChild('forwardButton') forwardButton: MdcFab;
 
   constructor() {
     this.musicTypeForm = new FormGroup({
       musicType: new FormControl('Classical')
-    })
+    });
   }
-
-  rewindFABAction() {
+  playPauseAction() {
+   this.playPauseButton.icon =  this.playPauseButton.icon === 'play_arrow' ? 'pause' : 'play_arrow';
+  }
+  rewindAction() {
     console.log('rewind');
   }
-  controlFABAction(element: HTMLElement) {
-    element.setAttribute('icon', 'pause');
-    // won't work because HTML and angular-mdc-web are different
-    console.log(element.getAttribute('icon'))
-  }
-  forwardFABAction() {
+
+  forwardAction() {
     console.log('forward');
   }
   ngOnInit() {
