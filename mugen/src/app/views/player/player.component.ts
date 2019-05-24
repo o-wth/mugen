@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -28,12 +28,6 @@ export class PlayerComponent implements OnInit {
     console.log('forward');
   }
   ngOnInit() {
-    const rewindFAB: HTMLElement = document.getElementById('rewind');
-    rewindFAB.addEventListener('click', (e: Event) => this.rewindFABAction());
-    const controlFAB: HTMLElement = document.getElementById('control');
-    controlFAB.addEventListener('click', (e: Event) => this.controlFABAction(controlFAB));
-    const forwardFAB: HTMLElement = document.getElementById('forward');
-    forwardFAB.addEventListener('click', (e: Event) => this.forwardFABAction());
   }
 
 }
