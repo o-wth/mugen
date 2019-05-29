@@ -1,5 +1,5 @@
 <div style="display: block">
-  <div mdcHeadline1>Mugen</div>
+  <a mdcHeadline1 href="https://github.com/o-wth/mugen">Mugen</a>
   <div mdcSubtitle1>An open source online music generator.</div>
   <mdc-select #enhanced required class="enhanced-width" style="text-align: left" placeholder="Genre">
     <mdc-menu>
@@ -13,7 +13,7 @@
   <div class="image" [mdcElevation]="4"></div>
   <div class="play-pause-container">
     <button mdc-fab class="controls" icon="fast_rewind" id="rewind"></button>
-    <button mdc-fab class="controls" icon="play_arrow" #playPauseButton (click)="playPauseButton.icon = playPauseButton.icon==='play_arrow' ? 'pause':'play_arrow'"></button>
+    <button mdc-fab class="controls" icon="play_arrow" #playPauseButton (click)="playPauseButton.icon = playPauseButton.icon==='play_arrow' ? 'pause':'play_arrow';"></button>
     <button mdc-fab class="controls" icon="fast_forward" id="forward"></button>
   </div>
 </div>
