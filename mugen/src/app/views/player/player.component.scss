@@ -1,23 +1,24 @@
 @import '../../../styles.scss';
+
 .image {
-    height: 300px;
-    border-radius: 2em;
-    background-size: contain;
-    background-color: $mdc-theme-primary;
-    margin: 8px auto;
+  height: 300px;
+  border-radius: 2em;
+  background-size: contain;
+  background-color: $mdc-theme-primary;
+  margin: 8px auto;
 }
 
 .play-pause-container {
-    display: inline-block;
-    margin: 8px auto;
+  display: inline-block;
+  margin: 8px auto;
 }
 
 .controls {
-    margin: 0 12px 0 12px;
+  margin: 0 12px;
 }
 
 .enhanced-width {
-    margin-top: 16px;
-    margin-bottom: 8px;
-    width: 7rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 7rem;
 }

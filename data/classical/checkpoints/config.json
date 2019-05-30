@@ -1,0 +1,9 @@
+[
+    {
+      "id": "attention_rrn",
+      "model": "MusicRNN",
+      "description": "Generates classical music",
+      "url": "https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/checkpoints/",
+      "size_mb": 0.5
+    }
+]
