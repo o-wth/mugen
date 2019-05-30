@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 import {MdcFab} from '@angular-mdc/web';
+
+import * as mm from '@magenta/music';
 
 @Component({
   selector: 'app-player',
@@ -15,22 +17,52 @@ export class PlayerComponent implements OnInit {
 
   musicTypeForm: FormGroup;
 
+  classical = new mm.MusicVAE('https://github.com/o-wth/mugen/tree/master/data/classical/checkpoints');
+  player = new mm.Player();
+
   constructor() {
     this.musicTypeForm = new FormGroup({
       musicType: new FormControl('Classical')
     });
   }
 
-  rewindFABAction() {
-    console.log('rewind');
+
+  play(genre: string) {
+    switch (genre) {
+      case 'classical': {
+        break;
+      }
+      case 'country': {
+        break;
+      }
+      case 'rap': {
+        break;
+      }
+      default: {
+        console.error(`MUGEN ERROR: genre not found (received: ${genre})`);
+        break;
+      }
+    }
   }
-  playPauseFABAction() {
+
+  pause() {
+    this.player.pause();
+  }
+
+  playPause() {
+    if (this.playPauseFAB.icon === 'play_arrow') {
+      this.playPauseFAB.icon = 'pause';
+      // this.play('classical');
+    }
     this.playPauseFAB.icon = (this.playPauseFAB.icon === 'play_arrow') ? 'pause' : 'play_arrow';
   }
-  forwardFABAction() {
-    console.log('forward');
+
+  forward() {
+    console.log('fast forward');
   }
+
   ngOnInit() {
+    this.classical.initialize();
   }
 
 }
