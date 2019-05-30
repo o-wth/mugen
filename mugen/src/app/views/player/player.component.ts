@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {MdcFab} from '@angular-mdc/web';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MdcFab } from '@angular-mdc/web';
 
 import * as mm from '@magenta/music';
 
@@ -10,15 +10,7 @@ import * as mm from '@magenta/music';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-
-  @ViewChild('rewindFAB') rewindFAB: MdcFab;
-  @ViewChild('playPauseFAB') playPauseFAB: MdcFab;
-  @ViewChild('forwardFAB') forwardFAB: MdcFab;
-
   musicTypeForm: FormGroup;
-  @ViewChild('rewindButton') rewindButton: MdcFab;
-  @ViewChild('playPauseButton') playPauseButton: MdcFab;
-  @ViewChild('forwardButton') forwardButton: MdcFab;
 
   classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/checkpoints/');
   player = new mm.Player();
@@ -52,16 +44,12 @@ export class PlayerComponent implements OnInit {
     this.player.pause();
   }
 
-  playPause() {
-    if (this.playPauseFAB.icon === 'play_arrow') {
-      this.playPauseFAB.icon = 'pause';
-      // this.play('classical');
-    }
-    this.playPauseFAB.icon = (this.playPauseFAB.icon === 'play_arrow') ? 'pause' : 'play_arrow';
-  }
-
   forward() {
     console.log('fast forward');
+  }
+
+  backward() {
+    console.log('rewind');
   }
 
   ngOnInit() {
