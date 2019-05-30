@@ -17,7 +17,7 @@ export class PlayerComponent implements OnInit {
 
   musicTypeForm: FormGroup;
 
-  classical = new mm.MusicVAE('https://github.com/o-wth/mugen/raw/master/data/classical/checkpoints');
+  classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/checkpoints/');
   player = new mm.Player();
 
   constructor() {
