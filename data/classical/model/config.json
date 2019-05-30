@@ -1,10 +1,11 @@
-[
-    {
-      "id": "attention_rrn",
-      "model": "MelodyRNN",
-      "type": "MusicRNN",
-      "description": "Generates classical music",
-      "url": "https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/model",
-      "size_mb": 0.5
+{
+  "type": "MusicRNN",
+  "dataConverter": {
+    "type": "MelodyConverter",
+    "args": {
+      "minPitch": 48,
+      "maxPitch": 83
     }
-]
+  },
+  "chordEncoder": "PitchChordEncoder"
+}

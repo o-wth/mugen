@@ -43,7 +43,7 @@ export class PlayerComponent implements OnInit {
   }
 
   playPause() {
-    this.playPauseFAB.icon = this.playPauseFAB.icon==='play_arrow' ? 'pause':'play_arrow'; 
+    this.playPauseFAB.icon = this.playPauseFAB.icon === 'play_arrow' ? 'pause' : 'play_arrow';
     this.play('classical');
   }
 
