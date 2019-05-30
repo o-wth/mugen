@@ -20,7 +20,7 @@ export class PlayerComponent implements OnInit {
   @ViewChild('playPauseButton') playPauseButton: MdcFab;
   @ViewChild('forwardButton') forwardButton: MdcFab;
 
-  classical = new mm.MusicVAE('https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/trio_4bar');
+  classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/checkpoints/');
   player = new mm.Player();
 
   constructor() {
