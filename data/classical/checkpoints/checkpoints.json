@@ -1,9 +1,9 @@
 [
     {
       "id": "attetion_rnn",
-      "model": "MusicVAE",
+      "model": "MusicRNN",
       "description": "Generates classical music",
-      "url": "https://github.com/o-wth/mugen/tree/master/data/classical/checkpoints",
+      "url": "https://github.com/o-wth/mugen/raw/master/data/classical/checkpoints",
       "size_mb": 0.5
     }
 ]
