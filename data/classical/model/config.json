@@ -1,5 +1,5 @@
 {
-  "type": "MusicRNN",
+  "type": "MelodyRNN",
   "dataConverter": {
     "type": "MelodyConverter",
     "args": {
