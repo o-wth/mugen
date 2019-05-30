@@ -12,7 +12,7 @@ import * as mm from '@magenta/music';
 export class PlayerComponent implements OnInit {
   musicTypeForm: FormGroup;
 
-  classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/model');
+  classical = new mm.MusicRNN('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/model');
   player = new mm.Player();
 
   @ViewChild('playPauseFAB') playPauseFAB: MdcFab;
@@ -27,6 +27,8 @@ export class PlayerComponent implements OnInit {
   play(genre: string) {
     switch (genre) {
       case 'classical': {
+        this.player.resumeContext();
+        this.player.start(this.classical.sample(1)[0]);
         break;
       }
       case 'country': {
@@ -42,9 +44,13 @@ export class PlayerComponent implements OnInit {
     }
   }
 
-  playPause() {
+  toggleControlIcon() {
     this.playPauseFAB.icon = this.playPauseFAB.icon === 'play_arrow' ? 'pause' : 'play_arrow';
-    this.play('classical');
+    if (this.playPauseFAB.icon === 'play_arrow') {
+      this.pause();
+    } else {
+      this.play('classical');
+    }
   }
 
   pause() {
