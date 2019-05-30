@@ -15,6 +15,8 @@ export class PlayerComponent implements OnInit {
   classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/checkpoints/');
   player = new mm.Player();
 
+  @ViewChild('playPauseFAB') playPauseFAB: MdcFab;
+
   constructor() {
     this.musicTypeForm = new FormGroup({
       musicType: new FormControl('Classical')
@@ -38,6 +40,11 @@ export class PlayerComponent implements OnInit {
         break;
       }
     }
+  }
+
+  playPause() {
+    this.playPauseFAB.icon = this.playPauseFAB.icon==='play_arrow' ? 'pause':'play_arrow'; 
+    this.play('classical');
   }
 
   pause() {

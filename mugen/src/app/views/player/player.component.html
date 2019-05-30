@@ -13,7 +13,7 @@
   <div class="image" [mdcElevation]="4"></div>
   <div class="play-pause-container">
     <button mdc-fab class="controls" icon="fast_rewind" #rewindFAB (click)="backward();"></button>
-    <button mdc-fab class="controls" icon="play_arrow" #playPauseFAB (click)="playPauseFAB.icon = playPauseFAB.icon==='play_arrow' ? 'pause':'play_arrow'; play('classical');"></button>
+    <button mdc-fab class="controls" icon="play_arrow" #playPauseFAB (click)="playPause();"></button>
     <button mdc-fab class="controls" icon="fast_forward" #forwardFAB (click)="forward();"></button>
   </div>
 </div>
