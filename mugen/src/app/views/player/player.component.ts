@@ -12,7 +12,7 @@ import * as mm from '@magenta/music';
 export class PlayerComponent implements OnInit {
   musicTypeForm: FormGroup;
 
-  classical = new mm.MusicVAE('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/model');
+  classical = new mm.MusicRNN('https://raw.githubusercontent.com/o-wth/mugen/master/data/classical/model');
   player = new mm.Player();
 
   @ViewChild('playPauseFAB') playPauseFAB: MdcFab;
