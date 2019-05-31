@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PlayerComponent } from './views/player/player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ParticlesModule } from 'angular-particle';
+
 import { 
   MdcIconModule,
   MdcTypographyModule,
@@ -14,8 +16,8 @@ import {
   MdcFabModule,
   MdcSelectModule,
   MdcListModule,
+  MdcChipsModule
 } from '@angular-mdc/web';
-
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import {
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MdcIconModule,
     MdcTypographyModule,
@@ -33,7 +35,9 @@ import {
     MdcElevationModule,
     MdcFabModule,
     MdcSelectModule,
-    MdcListModule
+    MdcListModule,
+    MdcChipsModule,
+    ParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

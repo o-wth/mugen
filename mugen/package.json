@@ -23,6 +23,7 @@
     "@magenta/music": "^1.8.0",
     "@tensorflow/tfjs-node": "^1.1.2",
     "@types/webmidi": "^2.0.3",
+    "angular-particle": "^1.0.4",
     "buffer": "^5.2.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",

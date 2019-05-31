@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MdcFab } from '@angular-mdc/web';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
+import {MdcFab} from '@angular-mdc/web';
 
 import * as mm from '@magenta/music';
 
@@ -16,6 +16,7 @@ export class PlayerComponent implements OnInit {
       musicType: new FormControl('Classical')
     });
   }
+
   musicTypeForm: FormGroup;
 
   classical = new mm.MusicVAE('https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/trio_4bar');
@@ -66,12 +67,16 @@ export class PlayerComponent implements OnInit {
   }
 
 
-  play() {
-    this.player.resumeContext();
-    this.classical.sample(1)
-      .then((samples) => {
-        this.player.start(samples[0], 80).then(() => this.playPauseFAB.icon === 'play_arrow' ? undefined : this.play());
-      });
+  async play() {
+    const sampleAndStart = async () => {
+      this.player.resumeContext();
+      this.classical.sample(1)
+        .then((samples) => {
+          this.player.start(samples[0], 80).then(() => this.playPauseFAB.icon === 'play_arrow' ? undefined : this.play());
+        });
+    };
+    await sampleAndStart();
+
   }
 
   toggleControlIcon() {
@@ -87,10 +92,7 @@ export class PlayerComponent implements OnInit {
     this.player.stop();
   }
 
-  forward() {
-    console.log('fast forward');
-  }
-
   ngOnInit() {
+    const init = () => this.classical.initialize();
   }
 }
