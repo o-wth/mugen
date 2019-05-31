@@ -66,25 +66,12 @@ export class PlayerComponent implements OnInit {
   }
 
 
-  play(genre: string) {
-    switch (genre) {
-      case 'classical': {
-        this.player.resumeContext();
-        this.classical.sample(1)
-          .then((samples) => this.player.start(samples[0], 80));
-        break;
-      }
-      case 'country': {
-        break;
-      }
-      case 'rap': {
-        break;
-      }
-      default: {
-        console.error(`MUGEN ERROR: genre not found (received: ${genre})`);
-        break;
-      }
-    }
+  play() {
+    this.player.resumeContext();
+    this.classical.sample(1)
+      .then((samples) => {
+        this.player.start(samples[0], 80).then(() => this.playPauseFAB.icon === 'play_arrow' ? undefined : this.play());
+      });
   }
 
   toggleControlIcon() {
@@ -92,20 +79,16 @@ export class PlayerComponent implements OnInit {
     if (this.playPauseFAB.icon === 'play_arrow') {
       this.pause();
     } else {
-      this.play('classical');
+      this.play();
     }
   }
 
   pause() {
-    this.player.pause();
+    this.player.stop();
   }
 
   forward() {
     console.log('fast forward');
-  }
-
-  backward() {
-    console.log('rewind');
   }
 
   ngOnInit() {

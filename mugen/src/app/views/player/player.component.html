@@ -1,19 +1,8 @@
 <div style="display: block">
   <a mdcHeadline1 href="https://github.com/o-wth/mugen">Mugen</a>
   <div mdcSubtitle1>An open source online music generator.</div>
-  <mdc-select #enhanced required class="enhanced-width" style="text-align: left" placeholder="Genre">
-    <mdc-menu>
-      <mdc-list>
-        <mdc-list-item value="classical">Classical</mdc-list-item>
-        <mdc-list-item value="country">Country</mdc-list-item>
-        <mdc-list-item value="rap">Rap</mdc-list-item>
-      </mdc-list>
-    </mdc-menu>
-  </mdc-select>
-  <div class="image" [mdcElevation]="4"></div>
+  <div class="image" [mdcElevation]="4" style="margin-top: 1rem;"></div>
   <div class="play-pause-container">
-    <button mdc-fab class="controls" icon="fast_rewind" #rewindFAB (click)="backward();"></button>
     <button mdc-fab class="controls" icon="play_arrow" #playPauseFAB (click)="toggleControlIcon();"></button>
-    <button mdc-fab class="controls" icon="fast_forward" #forwardFAB (click)="forward();"></button>
   </div>
 </div>
