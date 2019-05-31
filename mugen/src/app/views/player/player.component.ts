@@ -76,11 +76,7 @@ export class PlayerComponent implements OnInit {
 
   toggleControlIcon() {
     this.playPauseFAB.icon = this.playPauseFAB.icon === 'play_arrow' ? 'pause' : 'play_arrow';
-    if (this.playPauseFAB.icon === 'play_arrow') {
-      this.pause();
-    } else {
-      this.play();
-    }
+    this.playPauseFAB.icon === 'play_arrow' ? this.pause() : this.play();
   }
 
   pause() {
