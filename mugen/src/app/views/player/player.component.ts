@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {MdcFab} from '@angular-mdc/web';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MdcFab } from '@angular-mdc/web';
+import { Tone } from 'tone'
 
 import * as mm from '@magenta/music';
 
@@ -38,7 +39,7 @@ export class PlayerComponent implements OnInit {
     globalLimiter.connect(mm.Player.tone.Master);
 
     // Set up per-program effects.
-    const programMap = new Map();
+    const programMap = new Map<number, Tone.Compressor>();
     for (let i = 0; i < 128; i++) {
       const programCompressor = new mm.Player.tone.Compressor();
       const pan = 2 * MAX_PAN * Math.random() - MAX_PAN;
@@ -49,7 +50,7 @@ export class PlayerComponent implements OnInit {
     }
 
     // Set up per-drum effects.
-    const drumMap = new Map();
+    const drumMap = new Map<number, Tone.Compressor>();
     for (let i = MIN_DRUM; i <= MAX_DRUM; i++) {
       const drumCompressor = new mm.Player.tone.Compressor();
       const pan = 2 * MAX_PAN * Math.random() - MAX_PAN;
@@ -76,17 +77,14 @@ export class PlayerComponent implements OnInit {
         });
     };
     await sampleAndStart();
-
   }
 
-  toggleControlIcon() {
+  toggleControl() {
     this.playPauseFAB.icon = this.playPauseFAB.icon === 'play_arrow' ? 'pause' : 'play_arrow';
     this.playPauseFAB.icon === 'play_arrow' ? this.pause() : this.play();
   }
 
-  pause() {
-    this.player.stop();
-  }
+  pause = () => this.player.stop();
 
   ngOnInit() {
     const init = () => this.classical.initialize();
