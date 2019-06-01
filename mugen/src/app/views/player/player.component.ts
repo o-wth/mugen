@@ -20,60 +20,60 @@ export class PlayerComponent implements OnInit {
 
   musicTypeForm: FormGroup;
 
-  classical = new mm.MusicVAE('https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/trio_4bar');
-  player = PlayerComponent.initPlayerAndEffects();
+  classical: mm.MusicVAE = new mm.MusicVAE('https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/trio_4bar');
+  player: mm.SoundFontPlayer = PlayerComponent.initPlayerAndEffects();
 
   @ViewChild('playPauseFAB') playPauseFAB: MdcFab;
 
   static initPlayerAndEffects() {
-    const MAX_PAN = 0.2;
-    const MIN_DRUM = 35;
-    const MAX_DRUM = 81;
+    const MAX_PAN: number = 0.2;
+    const MIN_DRUM: number = 35;
+    const MAX_DRUM: number = 81;
 
     // Set up effects chain.
-    const globalCompressor = new mm.Player.tone.MultibandCompressor();
-    const globalReverb = new mm.Player.tone.Freeverb(0.25);
-    const globalLimiter = new mm.Player.tone.Limiter();
+    const globalCompressor: Tone.MultibandCompressor = new mm.Player.tone.MultibandCompressor();
+    const globalReverb: Tone.Freeverb = new mm.Player.tone.Freeverb(0.25);
+    const globalLimiter: Tone.Limiter = new mm.Player.tone.Limiter();
     globalCompressor.connect(globalReverb);
     globalReverb.connect(globalLimiter);
     globalLimiter.connect(mm.Player.tone.Master);
 
     // Set up per-program effects.
-    const programMap = new Map<number, Tone.Compressor>();
-    for (let i = 0; i < 128; i++) {
-      const programCompressor = new mm.Player.tone.Compressor();
-      const pan = 2 * MAX_PAN * Math.random() - MAX_PAN;
-      const programPanner = new mm.Player.tone.Panner(pan);
+    const programMap: Map<number, Tone.Compressor> = new Map<number, Tone.Compressor>();
+    for (let i: number = 0; i < 128; i++) {
+      const programCompressor: Tone.Compressor = new mm.Player.tone.Compressor();
+      const pan: number = 2 * MAX_PAN * Math.random() - MAX_PAN;
+      const programPanner: Tone.Panner = new mm.Player.tone.Panner(pan);
       programMap.set(i, programCompressor);
       programCompressor.connect(programPanner);
       programPanner.connect(globalCompressor);
     }
 
     // Set up per-drum effects.
-    const drumMap = new Map<number, Tone.Compressor>();
-    for (let i = MIN_DRUM; i <= MAX_DRUM; i++) {
-      const drumCompressor = new mm.Player.tone.Compressor();
-      const pan = 2 * MAX_PAN * Math.random() - MAX_PAN;
-      const drumPanner = new mm.Player.tone.Panner(pan);
+    const drumMap: Map<number, Tone.Compressor> = new Map<number, Tone.Compressor>();
+    for (let i: number = MIN_DRUM; i <= MAX_DRUM; i++) {
+      const drumCompressor: Tone.Compressor = new mm.Player.tone.Compressor();
+      const pan: number = 2 * MAX_PAN * Math.random() - MAX_PAN;
+      const drumPanner: Tone.Panner = new mm.Player.tone.Panner(pan);
       drumMap.set(i, drumCompressor);
       drumCompressor.connect(drumPanner);
       drumPanner.connect(globalCompressor);
     }
 
     // Set up SoundFont player.
-    const player = new mm.SoundFontPlayer(
+    const player: mm.SoundFontPlayer = new mm.SoundFontPlayer(
       'https://storage.googleapis.com/download.magenta.tensorflow.org/soundfonts_js/sgm_plus',
       globalCompressor, programMap, drumMap);
     return player;
   }
 
 
-  async play() {
-    const sampleAndStart = async () => {
+  async play(): Promise<void> {
+    const sampleAndStart: Function = async (): Promise<void> => {
       this.player.resumeContext();
       this.classical.sample(1)
-        .then((samples) => {
-          this.player.start(samples[0], 80).then(() => this.playPauseFAB.icon === 'play_arrow' ? undefined : this.play());
+        .then((samples): void => {
+          this.player.start(samples[0], 80).then((): Promise<void> => this.playPauseFAB.icon === 'play_arrow' ? undefined : this.play());
         });
     };
     await sampleAndStart();
@@ -84,9 +84,9 @@ export class PlayerComponent implements OnInit {
     this.playPauseFAB.icon === 'play_arrow' ? this.pause() : this.play();
   }
 
-  pause = () => this.player.stop();
+  pause: Function = (): void => this.player.stop();
 
   ngOnInit() {
-    const init = () => this.classical.initialize();
+    const init: Function = (): Promise<void> => this.classical.initialize();
   }
 }

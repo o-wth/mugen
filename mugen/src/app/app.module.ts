@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ParticlesModule } from 'angular-particle';
 
-import { 
+import {
   MdcIconModule,
   MdcTypographyModule,
   MdcButtonModule,
