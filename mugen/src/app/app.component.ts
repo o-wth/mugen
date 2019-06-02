@@ -20,7 +20,7 @@ export class AppComponent {
         "value": 80,
         "density": {
           "enable": true,
-          "value_area": 800
+          "value_area": 1000
         }
       },
       "color": {
@@ -65,7 +65,7 @@ export class AppComponent {
       },
       "move": {
         "enable": true,
-        "speed": 6,
+        "speed": 4,
         "direction": "none",
         "random": true,
         "straight": false,
