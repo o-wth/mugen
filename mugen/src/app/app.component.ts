@@ -33,29 +33,24 @@ export class AppComponent {
           "color": "#000000"
         },
         "polygon": {
-          "nb_sides": 5
+          "nb_sides": 9
         },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
-        }
       },
       "opacity": {
         "value": 0.5,
-        "random": false,
+        "random": true,
         "anim": {
-          "enable": false,
+          "enable": true,
           "speed": 1,
           "opacity_min": 0.1,
-          "sync": false
+          "sync": true
         }
       },
       "size": {
         "value": 3,
         "random": true,
         "anim": {
-          "enable": false,
+          "enable": true,
           "speed": 40,
           "size_min": 0.1,
           "sync": false
@@ -72,10 +67,10 @@ export class AppComponent {
         "enable": true,
         "speed": 6,
         "direction": "none",
-        "random": false,
+        "random": true,
         "straight": false,
         "out_mode": "out",
-        "bounce": false,
+        "bounce": true,
         "attract": {
           "enable": false,
           "rotateX": 600,
@@ -91,7 +86,7 @@ export class AppComponent {
           "mode": "repulse"
         },
         "onclick": {
-          "enable": false,
+          "enable": true,
           "mode": "push"
         },
         "resize": true
