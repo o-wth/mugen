@@ -24,3 +24,28 @@
 6.  [convert NoteSequences to SequenceExamples](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#create-sequenceexamples)
 
 7.  [train the MelodyRNN on the data](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn#train-and-evaluate-the-model)
+
+## Installing
+
+If you want to run Mugen on your local computer:
+
+1.  clone the repository
+
+2.  `npm i -g angular-cli-ghpages`
+
+3.  `cd mugen`
+
+4.  
+
+```bash
+cat > .git/hooks/commit-msg << EOF
+#!/bin/sh
+message=$(cat $1)
+cd mugen/
+ng build --prod --base-href "https://o-wth.github.io/mugen/"
+npx ngh --message "$message" --dir=dist/mugen
+EOF
+```
+
+5.  `cd mugen`
+6.  `ng serve`
