@@ -86,3 +86,6 @@ typings/
 .dynamodb/
 
 **/dist
+
+# IntelliJ IDEA
+.idea/
