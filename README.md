@@ -1,6 +1,6 @@
 # mugen
 
-## Development Process
+## Development Process (OUTDATED)
 
 1.  come up with idea
 
@@ -33,7 +33,7 @@ If you want to run Mugen on your local computer:
 
 2.  `npm i -g angular-cli-ghpages`
 
-3.  `cd mugen`
+3.  `cd` into the repository
 
 4.  
 
@@ -49,4 +49,5 @@ EOF
 ```
 
 5.  `cd mugen`
+
 6.  `ng serve`
