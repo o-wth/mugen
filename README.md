@@ -42,7 +42,7 @@ cat > .git/hooks/commit-msg << EOF
 #!/bin/sh
 message=$(cat $1)
 cd mugen/
-npm i
+yarn install
 ng build --prod --base-href "https://o-wth.github.io/mugen/"
 npx ngh --message "$message" --dir=dist/mugen
 EOF
